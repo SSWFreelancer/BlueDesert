@@ -139,8 +139,8 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 50;
-  width: 100%;
+  z-index: 1001;
+  width: 100vw;
 }
 @media (max-width: 991px) {
   .header {
@@ -1186,16 +1186,21 @@ body {
 .slick-slider {
   position: relative;
 }
-
-.slick-list {
+.slick-list{
   overflow: hidden;
 }
-
 .slick-track {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: flex-start;
 }
+/*.slick-slide{
+  height: 0;
+}
+.slick-slide.slick-current{
+  height: auto;
+}*/
 
 .projects__slider {
   background: url("../img/main//bg.svg") 0 0/cover no-repeat;
@@ -1223,12 +1228,13 @@ body {
           transform: translate(-100%, -50%) rotate(90deg);
   border: 2px solid #1d81ff;
   width: 67px;
+  cursor: pointer;
   height: 67px;
   border-radius: 50%;
   font-size: 0;
   background: #fff url("../img/projects/arrow.svg") center/25px 50px no-repeat;
 }
-.projects__slider .slick-arrow.slick-next {
+.projects__slider .slick-arrow.slider-arrownext {
   left: auto;
   right: -20px;
   -webkit-transform: translate(100%, -50%) rotate(-90deg);
@@ -1246,7 +1252,7 @@ body {
     width: 55px;
     height: 55px;
   }
-  .projects__slider .slick-arrow.slick-next {
+  .projects__slider .slick-arrow.slider-arrownext  {
     right: 5px;
     -webkit-transform: translate(0%, -50%) rotate(-90deg);
             transform: translate(0%, -50%) rotate(-90deg);
@@ -1258,7 +1264,7 @@ body {
     width: 45px;
     height: 45px;
   }
-  .projects__slider .slick-arrow.slick-next {
+  .projects__slider .slick-arrow.slider-arrownext {
     right: -15px;
   }
 }
@@ -1511,8 +1517,8 @@ body {
   background: #e8f2ff;
   padding: 0 35px 25px;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 calc(50% - 15px);
-          flex: 1 1 calc(50% - 15px);
+      -ms-flex: 0 1 calc(50% - 15px);
+          flex: 0 1 calc(50% - 15px);
 }
 .vpn__card p {
   font-size: 22px;
@@ -1565,10 +1571,12 @@ body {
 .benefits {
   padding-top: 80px;
   background: #e8f2ff;
+  margin-bottom: 273px;
 }
 @media (max-width: 991px) {
   .benefits {
     padding: 40px 0;
+    margin-bottom: 40px !important;
   }
 }
 .benefits__cards {
@@ -1583,8 +1591,8 @@ body {
 }
 .benefits__card {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 calc(50% - 15px);
-          flex: 1 1 calc(50% - 15px);
+      -ms-flex: 0 1 calc(50% - 15px);
+          flex: 0 1 calc(50% - 15px);
   background: #fff;
   border-radius: 20px;
   padding: 0 30px 35px;
@@ -1699,7 +1707,7 @@ body {
 @media (max-width: 991px) {
   .benefits__download {
     padding: 30px 20px;
-    margin-top: 40px;
+    margin-top: 40px !important;
     -webkit-transform: translate(0, 0%);
             transform: translate(0, 0%);
   }
@@ -1722,12 +1730,10 @@ body.lock {
 }
 
 .contacts {
-  margin-top: 273px;
   padding-bottom: 83px;
 }
 @media (max-width: 991px) {
   .contacts {
-    margin-top: 40px;
     padding-bottom: 40px;
   }
 }

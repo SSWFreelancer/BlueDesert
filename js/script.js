@@ -1,11 +1,16 @@
 $(document).ready(function (event) {
-   $('.projects__slider').slick({
+   $('.slider-wrapper').slick({
       arrows: true,
       dots: false,
       autoplay:false,
       infinite:false,
       slidesToShow: 1,
-      speed: 800,    
+      fade:true,
+      adaptiveHeight:true,
+      touchThreshold:50,
+      speed: 600,    
+      prevArrow:'.slider-arrowprev',
+      nextArrow:'.slider-arrownext',
    }); 
    $('.vacancies__link').click(function(e){
       e.preventDefault();
@@ -27,8 +32,17 @@ $(document).ready(function (event) {
       $('.header__burger, .menu').removeClass('active');
       $('body').removeClass('lock');
    });
+
+
+   $(window).trigger('resize');
 });
- 
+$(window).resize(function() {
+   $('.benefits__download').each(function(e){
+      $(this).parent().parent().css('margin-bottom', $(this).height()/2 + 110);
+      $(this).css('margin-top', -$(this).height()/2 + 25);
+   });
+});
+
 function readURL(input) {
    if (input.files && input.files[0]) {
        var reader = new FileReader();
